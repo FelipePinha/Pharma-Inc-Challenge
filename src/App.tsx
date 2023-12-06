@@ -1,5 +1,6 @@
 import { Form } from './components/Form';
 import { Header } from './components/Header';
+import { UsersTable } from './components/UsersTable';
 import './index.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
             <Header />
             <main>
                 <Form />
+                <UsersTable />
             </main>
         </>
     );
