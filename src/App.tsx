@@ -5,6 +5,8 @@ import { User } from './types/UserTypes';
 import { useUsers } from './hooks/useUsers';
 import { useContext } from 'react';
 import { SearchContext } from './contexts/FilterContext';
+import { Modal } from './components/Modal';
+
 import './index.css';
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
                     </table>
                 </div>
             </main>
+            <Modal />
         </>
     );
 }
