@@ -1,8 +1,9 @@
-import { useUsers } from '../hooks/useUsers';
+import { User } from '../types/UserTypes';
+interface UsersTableProps {
+    users: User[];
+}
 
-export const UsersTable = () => {
-    const { users } = useUsers();
-
+export const UsersTable = ({ users }: UsersTableProps) => {
     return (
         <div className="max-w-4xl mx-auto pb-4">
             <table className="w-full border-slate-400 border-2">
@@ -15,7 +16,7 @@ export const UsersTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user: any) => (
+                    {users.map((user: User) => (
                         <tr key={user.email}>
                             <td className="text-center p-2 border-2 border-slate-400">
                                 {user.name.first} {user.name.last}
