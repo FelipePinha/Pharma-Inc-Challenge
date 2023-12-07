@@ -3,10 +3,22 @@ import { Header } from './components/Header';
 import { UsersTable } from './components/UsersTable';
 import { User } from './types/UserTypes';
 import { useUsers } from './hooks/useUsers';
+import { useContext } from 'react';
+import { SearchContext } from './contexts/FilterContext';
 import './index.css';
 
 function App() {
     const { users } = useUsers();
+    const { search } = useContext(SearchContext);
+
+    const searchResults = users.filter((user: User) => {
+        const { first, last } = user.name;
+
+        return (
+            first.toLowerCase().includes(search.toLowerCase()) ||
+            last.toLowerCase().includes(search.toLowerCase())
+        );
+    });
 
     return (
         <>
@@ -24,7 +36,7 @@ function App() {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map((user: User) => (
+                            {searchResults.map((user: User) => (
                                 <UsersTable key={user.email} user={user} />
                             ))}
                         </tbody>
@@ -35,5 +47,4 @@ function App() {
     );
 }
 
-// {/* <UsersTable users={users} /> */}
 export default App;
