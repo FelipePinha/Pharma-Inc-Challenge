@@ -3,7 +3,17 @@ import { useContext } from 'react';
 import { ModalContext } from '../contexts/ModalContext';
 
 export const Modal = () => {
-    const { modalIsOpen, handleChangeModalState } = useContext(ModalContext);
+    const { modalIsOpen, handleChangeModalState, selectedUser } = useContext(ModalContext);
+
+    const { name, email, gender, registered, location } = selectedUser;
+    const { first, last } = name;
+    const { date } = registered;
+    const {
+        country,
+        street: { name: streetName, number },
+    } = location;
+
+    const registeredDate = date.substring(0, 10);
 
     return (
         <div
@@ -20,19 +30,23 @@ export const Modal = () => {
                     <User className="text-slate-800" size={38} />
                 </div>
                 <header className="mt-8 border-b-2 pb-2">
-                    <h2 className="font-bold text-slate-900 text-lg">Felipe Carvalho</h2>
-                    <h3 className="text-slate-400 text-md">felipecar.dev@gmail.com</h3>
-                    <h4 className="text-slate-400 text-sm">Brazil</h4>
-                    <h5 className="text-slate-400 text-xs">Valwood Pkwy</h5>
+                    <h2 className="font-bold text-slate-900 text-lg">
+                        {first} {last}
+                    </h2>
+                    <h3 className="text-slate-400 text-md">{email}</h3>
+                    <h4 className="text-slate-400 text-sm">{country}</h4>
+                    <h5 className="text-slate-400 text-xs">
+                        {streetName}, {number}
+                    </h5>
                 </header>
                 <section className="mt-5 mx-auto text-center">
                     <div className="mt-4  text-slate-600">
                         <strong>Gender</strong>
-                        <p>Male</p>
+                        <p>{gender}</p>
                     </div>
                     <div className="mt-4  text-slate-600">
                         <strong>Birth</strong>
-                        <p>2000-04-06</p>
+                        <p>{registeredDate}</p>
                     </div>
                     <div className="mt-4  text-slate-600">
                         <strong>Phone</strong>

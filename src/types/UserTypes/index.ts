@@ -8,4 +8,11 @@ export interface User {
     registered: {
         date: string;
     };
+    location: {
+        street: {
+            number: number;
+            name: string;
+        };
+        country: string;
+    };
 }
