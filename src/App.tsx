@@ -3,14 +3,16 @@ import { Header } from './components/Header';
 import { UsersTable } from './components/UsersTable';
 import { User } from './types/UserTypes';
 import { useUsers } from './hooks/useUsers';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { SearchContext } from './contexts/FilterContext';
 import { Modal } from './components/Modal';
 
 import './index.css';
+import { Pagination } from './components/Pagination';
 
 function App() {
-    const { users } = useUsers();
+    const [page, setPage] = useState(1);
+    const { users } = useUsers(page);
     const { search } = useContext(SearchContext);
 
     const searchResults = users.filter((user: User) => {
@@ -44,6 +46,7 @@ function App() {
                         </tbody>
                     </table>
                 </div>
+                <Pagination page={page} setPage={setPage} />
             </main>
             <Modal />
         </>
