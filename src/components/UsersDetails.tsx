@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { User } from '../types/UserTypes';
 import { ModalContext } from '../contexts/ModalContext';
-interface UsersTableProps {
+interface UsersDetailsProps {
     user: User;
 }
 
-export const UsersTable = ({ user }: UsersTableProps) => {
+export const UsersDetails = ({ user }: UsersDetailsProps) => {
     const { handleChangeModalState, handleChangeSelectedUser } = useContext(ModalContext);
     const registeredDate = user.registered.date.substring(0, 10);
 
