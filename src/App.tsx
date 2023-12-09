@@ -7,12 +7,13 @@ import { SearchContext } from './contexts/FilterContext';
 import { Modal } from './components/Modal';
 import { Pagination } from './components/Pagination';
 import { Table } from './components/Table';
+import { Loading } from './components/Loading';
 
 import './index.css';
 
 function App() {
     const [page, setPage] = useState(1);
-    const { users } = useUsers(page);
+    const { users, isLoading } = useUsers(page);
     const { search } = useContext(SearchContext);
 
     const searchResults = users.filter((user: User) => {
@@ -23,6 +24,8 @@ function App() {
             last.toLowerCase().includes(search.toLowerCase())
         );
     });
+
+    if (isLoading) return <Loading />;
 
     return (
         <>

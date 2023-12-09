@@ -10,7 +10,7 @@ export const useUsers = (pageNumber: number) => {
             .then(res => res.json())
             .then(data => setUsers(data.results))
             .catch(err => setError(err))
-            .finally(() => setIsLoading(state => !state));
+            .finally(() => setIsLoading(false));
     }, [pageNumber]);
 
     return {
