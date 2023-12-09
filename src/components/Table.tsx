@@ -35,7 +35,7 @@ export const Table = ({ searchResults }: TableProps) => {
 
             <div className="grid grid-cols-1 gap-4 md:hidden">
                 {searchResults.map((user: User) => (
-                    <div className="bg-white p-4 rounded-lg shadow">
+                    <div key={user.email} className="bg-white p-4 rounded-lg shadow">
                         <div className="flex justify-between items-center text-sm">
                             <div className="space-y-2">
                                 <div>
