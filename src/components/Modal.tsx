@@ -24,7 +24,7 @@ export const Modal = () => {
         >
             <div
                 onClick={e => e.stopPropagation()}
-                className="relative w-[40%] p-5 text-center bg-white rounded-lg"
+                className="relative min-w-[20rem] w-[40%] p-5 text-center bg-white rounded-lg"
             >
                 <div className="absolute top-[-20px] left-1/2 translate-x-[-50%] w-16 h-16 rounded-full bg-slate-300 flex justify-center items-center">
                     <User className="text-slate-800" size={38} />

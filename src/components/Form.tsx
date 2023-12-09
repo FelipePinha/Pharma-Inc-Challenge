@@ -11,7 +11,7 @@ export const Form = () => {
 
     return (
         <div className="max-w-4xl mx-auto my-16">
-            <p className="text-md text-slate-500 text-center font-bold">
+            <p className="text-sm md:text-md text-slate-500 text-center font-bold">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia saepe omnis asperiores
                 veniam optio ea pariatur eligendi nulla aperiam autem ratione consequatur.
             </p>

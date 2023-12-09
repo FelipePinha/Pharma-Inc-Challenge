@@ -29,7 +29,7 @@ function App() {
             <Header />
             <main>
                 <Form />
-                <div className="max-w-4xl mx-auto pb-4">
+                <div className="max-w-4xl mx-auto pb-4 px-3">
                     <Table searchResults={searchResults} />
                 </div>
                 <Pagination page={page} setPage={setPage} />
