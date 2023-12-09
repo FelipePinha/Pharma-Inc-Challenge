@@ -38,17 +38,31 @@ export const Table = ({ searchResults }: TableProps) => {
                     <div className="bg-white p-4 rounded-lg shadow">
                         <div className="flex justify-between items-center text-sm">
                             <div className="space-y-2">
-                                <div>Name</div>
-                                <div>Gender</div>
-                                <div>Birth</div>
-                                <div>Action</div>
+                                <div>
+                                    <span className="font-bold">Name</span>
+                                </div>
+                                <div>
+                                    <span className="font-bold">Gender</span>
+                                </div>
+                                <div>
+                                    <span className="font-bold">Birth</span>
+                                </div>
+                                <div>
+                                    <span className="font-bold">Action</span>
+                                </div>
                             </div>
                             <div className="space-y-2 flex flex-col items-end">
                                 <div>
-                                    {user.name.first} {user.name.last}
+                                    <span className="text-slate-700">
+                                        {user.name.first} {user.name.last}
+                                    </span>
                                 </div>
-                                <div>{user.gender}</div>
-                                <div>{user.registered.date.substring(0, 10)}</div>
+                                <div className="text-slate-700">
+                                    <span>{user.gender}</span>
+                                </div>
+                                <div className="text-slate-700">
+                                    <span>{user.registered.date.substring(0, 10)}</span>
+                                </div>
                                 <button
                                     onClick={() => handleViewClick(user)}
                                     className="bg-slate-500 text-white w-16 p-1 rounded-md"
